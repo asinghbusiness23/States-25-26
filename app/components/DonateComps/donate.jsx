@@ -1,6 +1,10 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { BiTestTube } from "react-icons/bi";
+import { IoMdLock } from "react-icons/io";
+import { CiReceipt, CiSquareCheck } from "react-icons/ci";
+import { FaReceipt } from "react-icons/fa";
 
 // ── Variants ──────────────────────────────────────────────────────────────────
 const fadeUp = {
@@ -144,14 +148,7 @@ function formatExpiry(val) {
 // ── Card brand logo SVGs ──────────────────────────────────────────────────────
 const VisaSVG = () => (
   <svg viewBox="0 0 50 16" width="40" height="13">
-    <text
-      x="0"
-      y="13"
-      fontFamily="serif"
-      fontSize="14"
-      fontWeight="bold"
-      fill="#1A1F71"
-    >
+    <text x="0" y="13" fontSize="14" fontWeight="bold" fill="#1A1F71">
       VISA
     </text>
   </svg>
@@ -291,7 +288,6 @@ export default function DonatePage() {
 
   return (
     <div className="min-h-screen bg-[#F1FAEE]">
-
       {/* ── HERO ───────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-[#1B6E4F] via-[#165c42] to-[#264653] px-6 md:px-20 pt-16 pb-28 overflow-hidden">
         <svg
@@ -471,7 +467,7 @@ export default function DonatePage() {
                     <p className="text-gray-300 text-sm mb-8">
                       A confirmation receipt would be sent to{" "}
                       <strong className="text-gray-400">{email}</strong> in
-                      production.
+                      reality.
                     </p>
 
                     {/* Impact summary */}
@@ -750,7 +746,7 @@ export default function DonatePage() {
                       </Field>
 
                       {/* Saved test cards helper */}
-                      <div className="bg-white border border-[#e8f5e1] rounded-xl p-4 mt-2">
+                      {/* <div className="bg-white border border-[#e8f5e1] rounded-xl p-4 mt-2">
                         <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
                           Quick-fill test cards
                         </p>
@@ -778,7 +774,7 @@ export default function DonatePage() {
                             </button>
                           ))}
                         </div>
-                      </div>
+                      </div> */}
                     </Card>
 
                     {/* ─ Agree + Submit ────────────────────────── */}
@@ -830,7 +826,10 @@ export default function DonatePage() {
                         <span className="flex items-center gap-1">
                           <LockIco size={12} /> Stripe Encrypted
                         </span>
-                        <span>🧪 Test Mode</span>
+                        <span className="flex items-center">
+                          <BiTestTube className="text-xl"></BiTestTube> &nbsp;
+                          Test Mode
+                        </span>
                       </div>
                     </div>
                   </form>
@@ -894,16 +893,18 @@ export default function DonatePage() {
               <div className="flex flex-col gap-3">
                 {[
                   {
-                    icon: "🔒",
-                    text: "Payments secured by Stripe — bank-level encryption",
+                    icon: <IoMdLock></IoMdLock>,
+                    text: "Payments secured by Stripe via bank-level encryption",
                   },
                   {
-                    icon: "✅",
+                    icon: (
+                      <CiSquareCheck className="text-green-400"></CiSquareCheck>
+                    ),
                     text: "100% goes to supporting Chester County resources",
                   },
                   {
-                    icon: "📧",
-                    text: "Receipt emailed instantly for tax records",
+                    icon: <FaReceipt className="text-blue-400"/>,
+                    text: "Can be used for tax records",
                   },
                 ].map(({ icon, text }, i) => (
                   <div
@@ -1051,53 +1052,6 @@ export default function DonatePage() {
             ))}
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* ── BOTTOM CTA ─────────────────────────────────────────── */}
-      <section className="px-6 md:px-20 py-14 bg-[#F1FAEE]">
-        <InView className="max-w-3xl mx-auto text-center">
-          <motion.div variants={fadeUp}>
-            <span className="inline-block bg-[#d3efca] text-[#1B6E4F] text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full mb-5">
-              Not ready to donate?
-            </span>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="text-[#264653] font-black text-2xl md:text-3xl mb-4"
-          >
-            There are other ways to help
-          </motion.h2>
-          <motion.div
-            variants={stagger(0.08)}
-            className="flex flex-wrap justify-center gap-4 mt-6"
-          >
-            {[
-              { emoji: "🙋", label: "Volunteer your time", cta: "Sign Up" },
-              { emoji: "📋", label: "Submit a resource", cta: "Add Listing" },
-              {
-                emoji: "📣",
-                label: "Share Chester Bridge",
-                cta: "Spread the Word",
-              },
-            ].map(({ emoji, label, cta }, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                whileHover={{
-                  y: -4,
-                  boxShadow: "0 12px 32px rgba(27,110,79,0.14)",
-                }}
-                className="bg-white rounded-2xl px-6 py-5 border border-[#d3efca] shadow-sm flex flex-col items-center gap-2 min-w-[160px]"
-              >
-                <span className="text-3xl">{emoji}</span>
-                <p className="font-bold text-[#264653] text-sm text-center">
-                  {label}
-                </p>
-                <p className="text-[#1B6E4F] font-black text-xs">{cta} →</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </InView>
       </section>
     </div>
   );

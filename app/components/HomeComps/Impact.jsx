@@ -7,6 +7,20 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import { RESOURCESCHAT } from "../ResourcesComps/data";
+import { supabase } from "@/app/supabaseClient";
+
+const uploadResources = async () => {
+  const { data, error } = await supabase
+    .from("resources")
+    .insert(RESOURCESCHAT);
+
+  if (error) {
+    console.error("Error inserting:", error);
+  } else {
+    console.log("Success:", data);
+  }
+};
 
 const HomeIco = () => (
   <Ico d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
@@ -183,6 +197,9 @@ const Impact = () => {
           </motion.div>
         ))}
       </motion.div>
+      <button onClick={uploadResources} className="bg-red-500 p-30"> 
+        Upload
+      </button>
     </section>
   );
 };

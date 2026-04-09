@@ -419,7 +419,7 @@ export const ALL_POSTS = [
     content: [
       {
         type: "intro",
-        text: "If you're struggling to put food on the table, you're not alone — and you don't have to navigate this by yourself. Chester County has a network of food assistance programs that serve thousands of families every year, many of them quietly and without fanfare. This guide covers every realistic option, what to expect, and exactly how to access them.",
+        text: "If you're struggling to put food on the table, you're not alone, and you don't have to navigate this by yourself. Chester County has a network of food assistance programs that serve thousands of families every year, many of them quietly and without fanfare. This guide covers every realistic option, what to expect, and exactly how to access them.",
       },
       { type: "h2", text: "Chester County Food Bank" },
       {

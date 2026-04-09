@@ -116,7 +116,6 @@ export const AuthContextProvider = ({ children }) => {
 
         if (mounted) setProfile(data);
       }
-      console.log("first func running");
       setLoading(false);
     };
 
@@ -136,16 +135,40 @@ export const AuthContextProvider = ({ children }) => {
               .single();
 
             setProfile(data);
-            console.log("setting profile not null");
+            // console.log("setting profile not null");
+            // console.log(data);
           } else {
-            console.log("setting profile null");
-            setProfile(null);
+            // console.log("setting profile null");
+            // setProfile(null);
           }
         });
-
+        // console.log(profile);
         setLoading(false);
       },
     );
+
+    // const { data: listener } = supabase.auth.onAuthStateChange(
+    //   async (_event, session) => {
+    //     if (!mounted) return;
+
+    //     setSession(session);
+
+    //     if (session?.user) {
+    //       const { data } = await supabase
+    //         .from("profiles")
+    //         .select("role")
+    //         .eq("id", session.user.id)
+    //         .maybeSingle();
+
+    //       setProfile(data);
+    //       console.log(profile)
+    //     } else {
+    //       setProfile(null);
+    //     }
+
+    //     setLoading(false);
+    //   },
+    // );
 
     return () => {
       mounted = false;
@@ -207,9 +230,9 @@ export const AuthContextProvider = ({ children }) => {
   //   });
   // }, []);
 
-  useEffect(() => {
-    console.log("loading changed:", loading);
-  }, [loading]);
+  // useEffect(() => {
+  //   // console.log("loading changed:", loading);
+  // }, [loading]);
 
   // Sign out
   async function signOut() {

@@ -294,7 +294,7 @@ export default function AboutPage() {
               className="mt-10 grid grid-cols-3 gap-3 max-w-xs"
             >
               {[
-                ["150+", "Resources"],
+                ["120+", "Resources"],
                 ["12K+", "Helped"],
                 ["Free", "Always"],
               ].map(([n, l]) => (

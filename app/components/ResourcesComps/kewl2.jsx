@@ -21,6 +21,8 @@ import { RiBriefcase4Fill, RiGraduationCapLine } from "react-icons/ri";
 import { CiForkAndKnife } from "react-icons/ci";
 import { PiHospitalFill, PiHouseFill } from "react-icons/pi";
 import { FaBoltLightning } from "react-icons/fa6";
+import { CgNotes } from "react-icons/cg";
+import { useSearchParams } from "next/navigation";
 
 // const handleInsert = async () => {
 //   const { data, error } = await supabase
@@ -117,6 +119,164 @@ const ArrowIco = () => <Ico d="M5 12h14M12 5l7 7-7 7" size={16} sw={2} />;
 const PlusIco = () => <Ico d="M12 5v14M5 12h14" size={20} sw={2.5} />;
 const ChevRIco = () => <Ico d="M9 18l6-6-6-6" size={16} sw={2} />;
 
+const StarRating = ({ rating }) => (
+  <div className="flex items-center gap-0.5">
+    {[1, 2, 3, 4, 5].map((i) => (
+      <span
+        key={i}
+        style={{
+          fontSize: 13,
+          color:
+            i <= Math.floor(rating)
+              ? "#f59e0b"
+              : i === Math.ceil(rating) && rating % 1 >= 0.5
+                ? "#f59e0b"
+                : "#d1d5db",
+          opacity: i === Math.ceil(rating) && rating % 1 >= 0.5 ? 0.5 : 1,
+        }}
+      >
+        ★
+      </span>
+    ))}
+    <span className="text-[11px] text-gray-400 ml-1">{rating.toFixed(1)}</span>
+  </div>
+);
+const CommentModal = ({ resource, user, profile, onClose }) => {
+  const [comments, setComments] = useState([]);
+  const [body, setBody] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      const { data } = await supabase
+        .from("comments")
+        .select("*")
+        .eq("resource_id", resource.id)
+        .order("created_at", { ascending: false });
+      setComments(data || []);
+      setLoading(false);
+    };
+    fetchComments();
+  }, [resource.id]);
+
+  const submit = async () => {
+    if (!body.trim() || !user) return;
+    const { data, error } = await supabase
+      .from("comments")
+      .insert({
+        resource_id: resource.id,
+        user_id: user.id,
+        username: profile?.username || user.email?.split("@")[0] || "Anonymous",
+        body: body.trim(),
+      })
+      .select()
+      .single();
+    if (!error && data) {
+      setComments((prev) => [data, ...prev]);
+      setBody("");
+    }
+  };
+
+  const canComment = user && profile?.role !== "admin";
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="fixed inset-0 bg-black/50 z-50 flex items-end justify-center"
+      >
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "100%" }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
+          className="bg-white w-full max-w-lg rounded-t-3xl p-5 flex flex-col gap-4 max-h-[80vh]"
+        >
+          <div className="flex items-center justify-between">
+            <h3 className="font-black text-[#264653] text-base">
+              Comments — {resource.name}
+            </h3>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 bg-gray-100 w-7 h-7 rounded-lg flex items-center justify-center"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div className="overflow-y-auto flex-1 flex flex-col gap-3">
+            {loading ? (
+              <p className="text-gray-400 text-sm text-center py-8">
+                Loading...
+              </p>
+            ) : comments.length === 0 ? (
+              <p className="text-gray-400 text-sm text-center py-8">
+                No comments yet. Be the first!
+              </p>
+            ) : (
+              comments.map((c) => (
+                <div
+                  key={c.id}
+                  className="bg-[#f8fdf6] border border-[#e8f5e1] rounded-xl p-3"
+                >
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-xs font-bold text-[#1B6E4F]">
+                      {c.username}
+                    </span>
+                    <span className="text-[10px] text-gray-400">
+                      {new Date(c.created_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {c.body}
+                  </p>
+                </div>
+              ))
+            )}
+          </div>
+
+          {canComment ? (
+            <>
+              <textarea
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                placeholder="Share your experience with this resource..."
+                className="border-[1.5px] border-[#d3efca] focus:border-[#1B6E4F] rounded-xl p-3 text-sm text-[#264653] outline-none resize-none"
+                rows={3}
+              />
+              <motion.button
+                whileTap={{ scale: 0.97 }}
+                onClick={submit}
+                disabled={!body.trim()}
+                className="bg-gradient-to-br from-[#1B6E4F] to-[#0cc883] text-white font-bold text-sm py-3 rounded-xl disabled:opacity-40"
+              >
+                Post Comment
+              </motion.button>
+            </>
+          ) : (
+            <div className="bg-[#fef3c7] border border-[#fde68a] rounded-xl p-4 text-center">
+              <p className="text-[#92400e] text-sm mb-3">
+                Sign in to leave a comment.
+              </p>
+              <Link href="/login">
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="bg-[#f59e0b] text-white font-bold text-sm px-6 py-2.5 rounded-xl"
+                >
+                  Sign in →
+                </motion.button>
+              </Link>
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 // ─── Category meta ────────────────────────────────────────────────────────────
 const CATS = [
   { id: "all", label: "All", emoji: <BsStars></BsStars>, color: "#1B6E4F" },
@@ -177,6 +337,35 @@ const Tag2 = ({ children, color }) => (
   </span>
 );
 
+const BackToTop = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-4 md:right-6 z-50 bg-[#1B6E4F] text-white w-11 h-11 md:w-12 md:h-12 rounded-full shadow-lg flex items-center justify-center"
+          aria-label="Back to top"
+        >
+          <Ico d="M18 15l-6-6-6 6" size={20} sw={2.5} color="white" />
+        </motion.button>
+      )}
+    </AnimatePresence>
+  );
+};
+
 // ─── Resource Card ────────────────────────────────────────────────────────────
 const ResourceCard = ({
   r,
@@ -185,6 +374,7 @@ const ResourceCard = ({
   isFavorited,
   toggleFavorite,
   profile,
+  onCommentClick,
 }) => {
   const catMeta = CATS.find((c) => c.id === r.category);
   return (
@@ -214,6 +404,7 @@ const ResourceCard = ({
       <p className="text-gray-400 text-sm leading-relaxed flex-1">
         {r.description}
       </p>
+      <StarRating rating={r.rating} />
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#4a7c6a] mt-1">
         <span className="flex items-center gap-1">
           <ClockIco />
@@ -237,7 +428,8 @@ const ResourceCard = ({
         <motion.a
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          // href = {}
+          href={r.embed}
+          target="_blank"
           className="cursor-pointer px-3 py-2.5 rounded-xl border border-[#d3efca] text-[#1B6E4F] text-xs font-bold flex items-center gap-1"
         >
           <PinIco /> Map
@@ -247,14 +439,16 @@ const ResourceCard = ({
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          href={r.website}
-          target="_blank"
+          onClick={() =>
+            user && profile?.role !== "admin"
+              ? onCommentClick(r)
+              : onCommentClick(r)
+          }
           className="flex-1 bg-[#d3efca] text-[#1B6E4F] text-xs font-bold py-2.5 rounded-xl text-center"
         >
-          Comment
+          💬 {!user ? "Log in to comment" : "Comment"}
         </motion.button>
         {/* Favorite Button*/}
-
         {!user || profile?.role == "admin" ? (
           <div></div>
         ) : isFavorited ? (
@@ -293,7 +487,18 @@ export default function ResourcesPage() {
   const [activeCat, setActiveCat] = useState("all");
   const [urgency, setUrgency] = useState("all");
   const [viewMode, setViewMode] = useState("grid"); // "grid" | "map"
+  const [commentResource, setCommentResource] = useState(null);
 
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const cat = searchParams.get("cat");
+    const urg = searchParams.get("urgency");
+    const q = searchParams.get("q");
+
+    if (cat) setActiveCat(cat);
+    if (urg) setUrgency(urg);
+    if (q) setQuery(q);
+  }, [searchParams]);
   //User
   //User
   const { session, signOut, loading, profile } = UserAuth();
@@ -413,11 +618,11 @@ export default function ResourcesPage() {
   return (
     <div className="min-h-screen bg-[#F1FAEE]">
       {/* ── HERO / SEARCH ────────────────────────────────────────────────── */}
-      <section className="bg-linear-to-br from-[#1B6E4F] via-[#1a5c42] to-[#264653] px-6 md:px-20 pt-16 pb-20 relative overflow-hidden">
+      <section className="bg-linear-to-br from-[#1B6E4F] via-[#1a5c42] to-[#264653] px-4 md:px-20 pt-10 md:pt-16 pb-14 md:pb-20 relative overflow-hidden">
+        {" "}
         {/* decorative blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#0cc883]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-
         <motion.div
           variants={stagger(0.1)}
           initial="hidden"
@@ -432,13 +637,16 @@ export default function ResourcesPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="text-4xl md:text-6xl font-black text-white leading-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl font-black text-white leading-tight mb-4"
           >
             What do you need
             <br />
             <span className="text-[#0cc883]">help with?</span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-white/60 text-lg mb-10">
+          <motion.p
+            variants={fadeUp}
+            className="text-white/60 text-base md:text-lg mb-8 md:mb-10"
+          >
             {RESOURCESCHAT.length} resources across Chester County — find yours
             instantly.
           </motion.p>
@@ -446,9 +654,9 @@ export default function ResourcesPage() {
           {/* Search bar */}
           <motion.div
             variants={fadeUp}
-            className="relative bg-white rounded-2xl shadow-[0_8px_48px_rgba(0,0,0,0.2)] flex items-center gap-3 px-5 py-3 mb-6"
+            className="relative bg-white rounded-2xl shadow-[0_8px_48px_rgba(0,0,0,0.2)] flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-3 mb-6"
           >
-            <span className="text-[#1B6E4F] flex-shrink-0">
+            <span className="text-[#1B6E4F] shrink-0">
               <SearchIco />
             </span>
             <input
@@ -470,7 +678,7 @@ export default function ResourcesPage() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-gradient-to-br from-[#1B6E4F] to-[#0cc883] text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md flex-shrink-0"
+              className="bg-gradient-to-br from-[#1B6E4F] to-[#0cc883] text-white px-3 sm:px-6 py-2.5 rounded-xl font-bold text-sm shadow-md flex-shrink-0"
             >
               Search
             </motion.button>
@@ -531,8 +739,11 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── CATEGORY QUICK-NAV ───────────────────────────────────────────── */}
-      <section className="bg-white border-b border-[#e8f5e1] px-6 md:px-20 py-5">
-        <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
+      <section className="bg-white border-b border-[#e8f5e1] px-3 md:px-20 py-4">
+        <div
+          className="flex items-center gap-2 overflow-x-auto flex-wrap pb-1 scrollbar-hide no-scrollbar"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {CATS.map((cat) => (
             <motion.button
               key={cat.id}
@@ -558,18 +769,21 @@ export default function ResourcesPage() {
               <span>{cat.emoji}</span> {cat.label}
             </motion.button>
           ))}
-          <Link
-            href="#emergency"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap border-[2.5px] transition-all shrink-0 hover:border-[#E76F51]  bg-[#E76F51] text-white"
+          <button
+            onClick={() =>
+              document
+                .getElementById("emergency")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap border-[2.5px] transition-all shrink-0 hover:border-[#E76F51] bg-[#E76F51] text-white cursor-pointer"
           >
-            {" "}
-            <MdEmergency></MdEmergency>Need Help Now?
-          </Link>
+            <MdEmergency /> Need Help Now?
+          </button>
         </div>
       </section>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-20 py-10">
+      <section className="px-4 md:px-20 py-8 md:py-10">
         {/* Toolbar */}
         <div className="flex items-center justify-between mb-7 flex-wrap gap-4">
           <div className="flex items-center gap-3">
@@ -654,7 +868,7 @@ export default function ResourcesPage() {
                   </motion.button>
                 </motion.div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
                   {filtered.map((r, i) => (
                     <ResourceCard
                       key={r.id}
@@ -664,6 +878,7 @@ export default function ResourcesPage() {
                       delay={i * 0.04}
                       user={user}
                       profile={profile}
+                      onCommentClick={setCommentResource}
                     />
                   ))}
                 </div>
@@ -676,7 +891,7 @@ export default function ResourcesPage() {
       {/* ── NEED HELP FAST ───────────────────────────────────────────────── */}
       <section
         ref={emergencyRef}
-        className="px-6 md:px-20 py-16 bg-linear-to-br from-[#fff8f0] to-[#fff3eb]"
+        className="px-4 md:px-20 py-10 md:py-16 bg-linear-to-br from-[#fff8f0] to-[#fff3eb]"
       >
         <motion.div
           variants={stagger(0.1)}
@@ -704,12 +919,11 @@ export default function ResourcesPage() {
             Need Help <span className="text-[#f59e0b]">Fast?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-400 text-base mb-10">
-            These resources are available right now — no appointment needed.
+            These resources are available right now with no appointment needed.
           </motion.p>
-
           <motion.div
             variants={stagger(0.08)}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5"
           >
             {EMERGENCY.map((e, i) => (
               <motion.div
@@ -747,7 +961,10 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── SUBMIT RESOURCE CTA ──────────────────────────────────────────── */}
-      <section ref={submitRef} className="px-6 md:px-20 py-20 bg-[#F1FAEE]">
+      <section
+        ref={submitRef}
+        className="px-4 md:px-20 py-12 md:py-20 bg-[#F1FAEE]"
+      >
         <motion.div
           variants={stagger(0.1)}
           initial="hidden"
@@ -756,13 +973,15 @@ export default function ResourcesPage() {
         >
           <motion.div
             variants={fadeUp}
-            className="bg-gradient-to-br from-[#1B6E4F] to-[#264653] rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden"
+            className="bg-linear-to-br from-[#1B6E4F] to-[#264653] rounded-2xl md:rounded-3xl p-7 md:p-14 flex flex-col md:flex-row items-center gap-6 md:gap-8 relative overflow-hidden"
           >
             {/* bg decor */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#0cc883]/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
 
-            <div className="flex-shrink-0 w-20 h-20 bg-white/15 rounded-2xl flex items-center justify-center relative z-10">
-              <span className="text-4xl">📋</span>
+            <div className="shrink-0 w-20 h-20 bg-white/15 rounded-2xl flex items-center justify-center relative z-10">
+              <span className="text-4xl">
+                <CgNotes className="text-white"></CgNotes>
+              </span>
             </div>
 
             <div className="flex-1 relative z-10 text-center md:text-left">
@@ -780,15 +999,28 @@ export default function ResourcesPage() {
               </p>
             </div>
 
-            <Link
-              href="/about#form"
-              className="shrink-0 bg-[#0cc883] text-white font-black text-sm px-8 py-4 rounded-2xl flex items-center gap-2 shadow-lg relative z-10 whitespace-nowrap"
-            >
-              <PlusIco /> Submit a Resource
+            <Link href="/about#form" className="">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0 bg-[#0cc883] text-white font-black text-sm px-8 py-4 rounded-2xl flex items-center gap-2 shadow-lg relative z-10 whitespace-nowrap"
+              >
+                {" "}
+                <PlusIco /> Submit a Resource
+              </motion.button>
             </Link>
           </motion.div>
         </motion.div>
       </section>
+      <BackToTop />
+      {commentResource && (
+        <CommentModal
+          resource={commentResource}
+          user={user}
+          profile={profile}
+          onClose={() => setCommentResource(null)}
+        />
+      )}
     </div>
   );
 }

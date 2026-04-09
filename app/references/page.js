@@ -1,13 +1,13 @@
 import React from "react";
-import SignIn from "../components/AuthComps/SignIn";
-import Navbar from "../components/LayoutComps/Navbar";
+import ReferencesPage from "../components/ReferencesComps/References";
 import Footer from "../components/LayoutComps/Footer";
+import Navbar from "../components/LayoutComps/Navbar";
 
 const page = () => {
   return (
     <div>
-      <Navbar />
-      <SignIn />
+      <Navbar></Navbar>
+      <ReferencesPage></ReferencesPage>
       <Footer></Footer>
     </div>
   );

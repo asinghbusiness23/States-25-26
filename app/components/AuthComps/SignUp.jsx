@@ -3,6 +3,9 @@ import { UserAuth } from "@/app/context/AuthContext";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { FaHeart } from "react-icons/fa";
+import { CgNotes } from "react-icons/cg";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -52,10 +55,17 @@ const SignUp = () => {
         </p>
 
         <div className="mt-8 space-y-3 text-white/80 text-sm">
-          <p>⭐ Save your favorite spots</p>
-          <p>📝 Write reviews & blogs</p>
-          <p>💬 Comment & engage</p>
-          <p>🌍 Discover local gems</p>
+          <p className="flex items-center">
+            <FaHeart className="text-red-500"></FaHeart> &nbsp; Save your
+            favorite resources
+          </p>
+          <p className="flex items-center">
+            <CgNotes className="text-yellow-200"></CgNotes> &nbsp; Comment and
+            Engage
+          </p>
+          <p className="flex items-center">
+            <FaMagnifyingGlass></FaMagnifyingGlass> &nbsp; Discover resources
+          </p>
         </div>
       </div>
 

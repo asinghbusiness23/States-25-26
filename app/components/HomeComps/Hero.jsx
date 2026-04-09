@@ -45,6 +45,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Three real community/Chester County photos from Unsplash (free to use)
 const PHOTOS = [
@@ -166,25 +167,29 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mt-10">
-            <motion.button
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 10px 32px rgba(12,200,131,0.38)",
-              }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#1B6E4F] text-white font-bold text-sm px-8 py-4 rounded-2xl shadow-[0_4px_20px_rgba(27,110,79,0.32)] tracking-wide"
-            >
-              Find Resources
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-white text-[#1B6E4F] font-bold text-sm px-8 py-4 rounded-2xl border-2 border-[#c8e6d4] hover:border-[#1B6E4F] transition-colors"
-            >
-              Get Involved
-            </motion.button>
+            <Link href="/resources">
+              <motion.button
+                whileHover={{
+                  scale: 1.04,
+                  boxShadow: "0 10px 32px rgba(12,200,131,0.38)",
+                }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-[#1B6E4F] text-white font-bold text-sm px-8 py-4 rounded-2xl shadow-[0_4px_20px_rgba(27,110,79,0.32)] tracking-wide"
+              >
+                Find Resources
+              </motion.button>
+            </Link>
+            <Link href="/about#form">
+              {" "}
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-white text-[#1B6E4F] font-bold text-sm px-8 py-4 rounded-2xl border-2 border-[#c8e6d4] hover:border-[#1B6E4F] transition-colors"
+              >
+                Submit A Resource
+              </motion.button>
+            </Link>
           </motion.div>
-
           {/* Trust strip */}
           <motion.div
             variants={fadeUp}
@@ -208,7 +213,7 @@ export default function Hero() {
         </motion.div>
 
         {/* ── RIGHT: 3 staggered photos ──────────────────────── */}
-        <div className="flex-1 relative w-full max-w-130 h-130 lg:h-screen max-h-170 shrink-0">
+        <div className="flex-1 relative w-full max-w-130 h-130 lg:h-screen max-h-170 shrink-0 max-[1100px]:hidden">
           {/* Photo 1 — large, left, slightly behind */}
           <motion.div
             variants={photoVariant(0)}
@@ -229,13 +234,10 @@ export default function Hero() {
               <img
                 src={PHOTOS[0].src}
                 alt={PHOTOS[0].alt}
-                className="w-full aspect-[4/5] object-cover block"
+                className="w-full aspect-4/5 object-cover block"
               />
               {/* Label chip */}
-              <div
-                className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm
-                              rounded-xl px-3 py-1.5 flex items-center gap-1.5 shadow-md"
-              >
+              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-1.5 flex items-center gap-1.5 shadow-md">
                 <div className="w-2 h-2 rounded-full bg-[#f59e0b]" />
                 <span className="text-[11px] font-black text-[#264653] tracking-wide">
                   {PHOTOS[0].label}

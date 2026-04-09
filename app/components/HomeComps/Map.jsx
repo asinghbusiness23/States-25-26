@@ -7,6 +7,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import Link from "next/link";
 
 // ── Tag pill ──────────────────────────────────────────────────────────────────
 const Tag = ({ children }) => (
@@ -215,13 +216,15 @@ const MapSection = () => {
               </AnimatePresence>
             </motion.div>
           ))}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="mt-auto bg-[#1B6E4F] text-white rounded-2xl py-3.5 font-bold text-sm shadow-[0_4px_16px_rgba(27,110,79,0.25)]"
-          >
-            View Full Map →
-          </motion.button>
+          <Link href="/resources">
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-auto w-full bg-[#1B6E4F] text-white rounded-2xl py-3.5 font-bold text-sm shadow-[0_4px_16px_rgba(27,110,79,0.25)]"
+            >
+              View Resources →
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

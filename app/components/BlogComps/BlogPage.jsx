@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ALL_POSTS } from "./data";
+import { ALL_POSTS } from "./newData";
 import { LuRefreshCcw } from "react-icons/lu";
 import { CgNotes } from "react-icons/cg";
 import { IoIosAlert } from "react-icons/io";
 import Link from "next/link";
+import { FaLink, FaMapPin } from "react-icons/fa";
+import { PiLadderSimpleFill } from "react-icons/pi";
 
 // ── Unsplash photo map — free, no API key needed ──────────────────────────────
 // Format: https://images.unsplash.com/photo-{id}?w=800&q=80&auto=format&fit=crop
@@ -1066,7 +1068,6 @@ export default function BlogsPage() {
                 </p>
               </div>
             </motion.div>
-
           </div>
 
           <motion.div variants={stagger(0.09)} className="flex flex-col gap-3">
@@ -1151,17 +1152,19 @@ export default function BlogsPage() {
                 <div className="flex flex-col gap-4">
                   {[
                     {
-                      icon: "📍",
+                      icon: <FaMapPin className="text-red-400"></FaMapPin>,
                       title: "Location-specific",
                       desc: "Every guide is written for Chester County — not generic advice.",
                     },
                     {
-                      icon: "🪜",
+                      icon: (
+                        <PiLadderSimpleFill className="text-orange-900"></PiLadderSimpleFill>
+                      ),
                       title: "Step-by-step",
                       desc: "We break down the process so nothing is left to guesswork.",
                     },
                     {
-                      icon: "🔗",
+                      icon: <FaLink className="text-gray-400"></FaLink>,
                       title: "Linked to resources",
                       desc: "Every article links directly to the programs it talks about.",
                     },
@@ -1185,7 +1188,10 @@ export default function BlogsPage() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  className="mt-6 flex-shrink-0 bg-[#0cc883] text-white font-black px-7 py-3.5 rounded-2xl text-sm flex items-center gap-2 shadow-[0_4px_24px_rgba(12,200,131,0.4)]"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="mt-6 shrink-0 bg-[#0cc883] text-white font-black px-7 py-3.5 rounded-2xl text-sm flex items-center gap-2 shadow-[0_4px_24px_rgba(12,200,131,0.4)]"
                 >
                   <BookIco /> Browse all guides
                 </motion.button>
@@ -1221,7 +1227,7 @@ export default function BlogsPage() {
               //   scale: 1.05,
               //   boxShadow: "0 8px 28px rgba(27,110,79,0.3)",
               // }}
-              href = "/resources"
+              href="/resources"
               className="focus:scale-[0.97] hover:scale-[1.05] hover:shadow-[0, 8px. 28px, rgba(27,110,79,0.3)] flex items-center gap-2 bg-[#1B6E4F] text-white font-bold px-7 py-4 rounded-xl text-sm shadow-[0_4px_16px_rgba(27,110,79,0.28)] duration-200"
             >
               Browse Resources <ArrowIco />

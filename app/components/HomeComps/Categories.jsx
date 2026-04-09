@@ -1,49 +1,4 @@
-// import React from "react";
-// import { FaHome } from "react-icons/fa";
-// import { MdOutlineHealthAndSafety } from "react-icons/md";
-// import { RiGraduationCapLine } from "react-icons/ri";
-// import { CiForkAndKnife } from "react-icons/ci";
-// import { FaBriefcase } from "react-icons/fa";
-// const icons = [
-//   <FaHome className="text-[rgb(27,110,79)] text-3xl"></FaHome>,
-//   <MdOutlineHealthAndSafety className="text-[rgb(27,110,79)] text-3xl" />,
-//   <RiGraduationCapLine className="text-[rgb(27,110,79)] text-3xl" />,
-//   <CiForkAndKnife className="text-[rgb(27,110,79)] text-3xl" />,
-//   <FaBriefcase className="text-[rgb(27,110,79)] text-3xl" />,
-// ];
 
-// const Categories = () => {
-//   return (
-//     <div className="bg-[#d3efca] justify-center py-14">
-//       <h2 className="text-center text-[#264653] text-sm uppercase mb-3">
-//         Browse by Category
-//       </h2>
-//       <h2 className="text-center text-[#264653] font-semibold text-3xl mb-12">
-//         What do you need help with?
-//       </h2>
-//       <div className="flex justify-around">
-//         <Card name="Housing" icon={0}></Card>
-//         <Card name="Health" icon={1}></Card>
-//         <Card name="Education" icon={2}></Card>
-//         <Card name="Food" icon={3}></Card>
-//         <Card name="Jobs" icon={4}></Card>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const Card = ({ icon, name }) => {
-//   return (
-//     <div className="bg-white w-60 h-50 rounded-2xl flex flex-col items-center justify-center ">
-//       <div className="w-20 h-20 bg-[#dbf6d2] rounded-4xl flex items-center justify-center">
-//         {icons[icon]}
-//       </div>
-//       <h2 className="font-semibold mt-5">{name}</h2>
-//     </div>
-//   );
-// };
-
-// export default Categories;
 "use client";
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
