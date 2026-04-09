@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Open_Sans, Poppins, Rubik } from "next/font/google";
 import "./globals.css";
 import { AuthContextProvider } from "./context/AuthContext";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <Providers></Providers>
       </body>
     </html>
   );
