@@ -28,8 +28,6 @@ const PHOTOS = {
   all: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&q=80&auto=format&fit=crop",
 };
 
-
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Chester Bridge · Blog Post Content
 // All posts written in plain, friendly language — no AI-speak, no fluff.
@@ -50,6 +48,13 @@ export const ALL_POSTS = [
     date: "Mar 12, 2026",
     resource:
       "Chester County Food Bank, Phoenixville Area Community Services, West Chester Food Cupboard",
+    links: [
+      { "Chester County Food Bank": "https://chestercountyfoodbank.org/" },
+      {
+        "Phoenixville Area Community Services": "https://www.pacsphx.org/",
+      },
+      { "West Chester Food Cupboard": "https://westchesterfoodcupboard.org/" },
+    ],
     photo: PHOTOS.food,
     steps: [
       "Find your nearest food bank using Chester Bridge",
@@ -117,10 +122,16 @@ export const ALL_POSTS = [
     readTime: 4,
     date: "Mar 12, 2026",
     photo: PHOTOS.housing,
-    resource: "Chester County Night Shelter, 211 PA, YWCA Chester County",
+    resource: "211 PA, YWCA Chester County",
+    links: [
+      {
+        "211 PA": "https://www.pa211.org/",
+      },
+      { "YWCA Chester County": "https://www.ywca.org/" },
+    ],
     steps: [
       "Call 211 first — they'll find you an open bed faster than you can",
-      "Chester County Night Shelter at 235 W Market St opens for walk-ins at 5pm",
+      "Go to a Chester County Night Shelter",
       "Bring ID if you have it — most low-barrier shelters accept you without it",
       "Ask shelter staff about next-day transitional housing options",
     ],
@@ -137,19 +148,6 @@ export const ALL_POSTS = [
       {
         type: "p",
         text: "If calling is hard, you can text your ZIP code to 898-211. There's also a chat option at 211pa.org.",
-      },
-      { type: "h2", text: "Chester County Night Shelter" },
-      {
-        type: "p",
-        text: "The Chester County Night Shelter at 235 W Market Street in West Chester accepts walk-ins every evening starting at 5pm. It's a low-barrier shelter: they don't require sobriety, a referral, or an ID to get in. They operate on a first-come first-serve basis, so arriving close to 5pm gives you the best chance of getting a bed on a busy night. The phone number is (610) 696-6877.",
-      },
-      {
-        type: "p",
-        text: "Once you're inside, you'll get a cot and a meal. Case managers are available the next morning to help you start working on what comes next — transitional housing, ERAP applications, whatever you need. You don't have to figure it all out on your first night.",
-      },
-      {
-        type: "tip",
-        text: "If you have a pet: the Night Shelter doesn't accept animals. Call 211 and specifically ask about pet-friendly emergency housing options. They exist, but 211 will get you there faster than searching on your own.",
       },
       { type: "h2", text: "If you're fleeing domestic violence" },
       {
@@ -185,22 +183,31 @@ export const ALL_POSTS = [
     readTime: 6,
     date: "Mar 5, 2026",
     resource:
-      "Community Health Clinics of Chester County, Devereux Advanced Behavioral Health",
+      "Community Volunteers in Medicine, Devereux Advanced Behavioral Health",
+    links: [
+      {
+        "Community Volunteers in Medicine": "https://cvim.org/",
+      },
+      {
+        "Devereux Advanced Behavioral Health":
+          "https://www.devereux.org/site/SPageServer/?",
+      },
+    ],
     steps: [
-      "Call CHCCC at (610) 738-3922 — they'll pre-screen you for your fee level",
+      "Call CVIM at (610) 836-5990 AND they'll pre-screen you for your fee level",
       "Mention any medications, allergies, or past diagnoses when you call",
-      "Ask about mental health and dental at the same visit — they're in the same system",
-      "If you need care today, call early — they hold a few same-day slots",
+      "Ask about mental health and dental at the same visit because they're in the same system",
+      "If you need care today, call early, they may hold a few same-day slots",
     ],
     content: [
       {
         type: "intro",
         text: "Going without a doctor because you can't afford it or don't have insurance is more common than people admit. But in Chester County, there are clinics that will see you for almost free based on what you earn. This isn't charity care with a 2 year waitlist. These are functioning clinics with real doctors, seeing patients every week.",
       },
-      { type: "h2", text: "Community Health Clinics of Chester County" },
+      { type: "h2", text: "Community Volunteers in Medicine" },
       {
         type: "p",
-        text: "Community Health Clinics of Chester County (CHCCC) charges on a sliding scale, and for patients below a certain income level, that could potentially mean $0 per visit. They have multiple locations across the county and offer primary care, women's health, pediatrics, dental, and behavioral health services.",
+        text: "Community Volunteers in Medicine (CVIM) charges on a sliding scale, and for patients below a certain income level, that could potentially mean $0 per visit. They have multiple locations across the county and offer primary care, women's health, pediatrics, dental, and behavioral health services.",
       },
       {
         type: "p",
@@ -255,6 +262,15 @@ export const ALL_POSTS = [
     date: "Feb 28, 2026",
     resource:
       "Chester County Department of Community Development, Chester County Housing Authority",
+    links: [
+      {
+        "Chester County Department of Community Development":
+          "https://www.chesco.org/204/Community-Development",
+      },
+      {
+        "Chester County Housing Authority": "https://www.chesterha.org/",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -305,8 +321,6 @@ export const ALL_POSTS = [
     ],
   },
 
-  // ── 5 ─────────────────────────────────────────────────────────────────────
-
   // ── 6 ─────────────────────────────────────────────────────────────────────
   {
     id: 6,
@@ -318,7 +332,12 @@ export const ALL_POSTS = [
     readTime: 4,
     date: "Feb 20, 2026",
     photo: PHOTOS.health2,
-    resource: "Community Health Clinics of Chester County",
+    resource: "Community Volunteers in Medicine",
+    links: [
+      {
+        "Community Volunteers in Medicine": "https://cvim.org/",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -351,7 +370,7 @@ export const ALL_POSTS = [
       },
       {
         type: "tip",
-        text: "At Community Health Clinics of Chester County, you can ask to speak with a Patient Services Representative before your appointment to get your income documentation processed in advance. They'll tell you exactly what your visit will cost. For a lot of patients, it's $0. Call (610) 738-3922.",
+        text: "At Community Volunteers in Medicine, you can ask to speak with a Patient Services Representative before your appointment to get your income documentation processed in advance. They'll tell you exactly what your visit will cost. For a lot of patients, it's $0. Call (610) 738-3922.",
       },
       { type: "h2", text: "One more thing" },
       {
@@ -373,6 +392,15 @@ export const ALL_POSTS = [
     readTime: 6,
     date: "Feb 15, 2026",
     resource: "PA CareerLink Chester County, Chester County OIC",
+    links: [
+      {
+        "PA CareerLink Chester County": "https://www.pacareerlinkchesco.org/",
+      },
+      {
+        "Chester County OIC": "https://ccoic.org/",
+      },
+    ],
+
     content: [
       {
         type: "intro",
@@ -415,11 +443,22 @@ export const ALL_POSTS = [
     photo: PHOTOS.education,
     title: "How to Get Free GED Prep in Chester County",
     summary:
-      "Multiple free programs exist — some with classes, some with one-on-one tutors. Here's how to pick one and get started.",
+      "Multiple free programs exist,some with classes, some with one-on-one tutors. Here's how to pick one and get started.",
     readTime: 5,
     date: "Feb 10, 2026",
     resource:
       "Chester County OIC, Chester County Library, PA CareerLink Chester County",
+    links: [
+      {
+        "PA CareerLink Chester County": "https://www.pacareerlinkchesco.org/",
+      },
+      {
+        "Chester County OIC": "https://ccoic.org/",
+      },
+      {
+        "Chester County Library System": "https://ccls.org/",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -458,12 +497,28 @@ export const ALL_POSTS = [
     category: "emergency",
     title: "Crisis Lines: Who to Call and When",
     summary:
-      "Real phone numbers for real crises — mental health, domestic violence, overdose, housing, and more. Save these before you need them.",
+      "Real phone numbers for real crises: mental health, domestic violence, overdose, housing, and more. Save these before you need them.",
     readTime: 4,
+    links: [
+      {
+        "211 PA": "https://www.pa211.org/",
+      },
+      { "YWCA Chester County": "https://www.ywca.org/" },
+      { "988 Lifeline": "https://988lifeline.org/get-help/" },
+      {
+        "PA Warmline":
+          "https://www.upmc.com/locations/hospitals/hamot/services/behavioral-health-services/services/crisis-services/warmline",
+      },
+      {
+        "PA Get Help Now Hotline":
+          "https://www.pa.gov/agencies/ddap/treatment-and-support/get-help-now-campaign",
+      },
+    ],
     date: "Feb 5, 2026",
     photo: PHOTOS.emergency,
     resource:
       "988 Lifeline, YWCA Chester County, PA Warmline, PA Get Help Now Hotline, 211 PA",
+
     content: [
       {
         type: "intro",
@@ -517,6 +572,15 @@ export const ALL_POSTS = [
     date: "Jan 30, 2026",
     resource:
       "PA COMPASS, Chester County Assistance Office, Chester County Food Bank",
+    links: [
+      {
+        "PA Compass": "    https://www.compass.dhs.pa.gov/home/#/",
+      },
+      { "Chester County Assistance Office": "https://www.ywca.org/" },
+      {
+        "Chester County Food Bank": "https://www.chesco.org/226/Human-Services",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -547,7 +611,7 @@ export const ALL_POSTS = [
       },
       {
         type: "tip",
-        text: "SNAP benefits load onto an EBT card that works like a debit card at Aldi, Walmart, Giant, Acme, and most other grocery stores. You can check your balance at compass.state.pa.us or by calling the number on the back of the card.",
+        text: "SNAP benefits load onto an EBT card that works like a debit cathrd at Aldi, Walmart, Giant, Acme, and most other grocery stores. You can check your balance at compass.state.pa.us or by calling the number on the back of the card.",
       },
     ],
   },
@@ -564,6 +628,11 @@ export const ALL_POSTS = [
     date: "Jan 22, 2026",
     photo: PHOTOS.housing2,
     resource: "Chester County Housing Authority",
+    links: [
+      {
+        "Chester County Housing Authority": "https://www.chesterha.org/",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -611,7 +680,21 @@ export const ALL_POSTS = [
     date: "Jan 15, 2026",
     photo: PHOTOS.health2,
     resource:
-      "Devereux Advanced Behavioral Health, PA Warmline, 988 Crisis Line, Community Health Clinics of Chester County",
+      "Devereux Advanced Behavioral Health, PA Warmline, 988 Life Line, Community Volunteers in Medicine",
+    links: [
+      {
+        "Community Volunteers in Medicine": "https://cvim.org/",
+      },
+      {
+        "Devereux Advanced Behavioral Health":
+          "https://www.devereux.org/site/SPageServer/?",
+      },
+      { "988 Lifeline": "https://988lifeline.org/get-help/" },
+      {
+        "PA Warmline":
+          "https://www.upmc.com/locations/hospitals/hamot/services/behavioral-health-services/services/crisis-services/warmline",
+      },
+    ],
     content: [
       {
         type: "intro",
@@ -638,7 +721,7 @@ export const ALL_POSTS = [
       { type: "h2", text: "Integrated care at CHCCC" },
       {
         type: "p",
-        text: "Community Health Clinics of Chester County (CHCCC) has behavioral health staff in the same clinics as their primary care providers. If you become a CHCCC patient, you can ask about a same-day behavioral health check-in during a medical visit — no separate referral, no separate office to navigate. Call (610) 738-3922 to start as a patient.",
+        text: "Community Volunteers in Medicine (CVIM) has behavioral health staff in the same clinics as their primary care providers. If you become a CHCCC patient, you can ask about a same-day behavioral health check-in during a medical visit — no separate referral, no separate office to navigate. Call (610) 738-3922 to start as a patient.",
       },
       {
         type: "tip",

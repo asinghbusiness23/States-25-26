@@ -120,10 +120,10 @@ const Impact2 = () => {
         <motion.div variants={stagger(0.12)} initial="hidden" animate={inView?"show":"hidden"}
           className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-14">
           {[
-            { icon:<UsersIco/>, n:12400, suffix:"+",    label:"Residents Connected", color:"#1B6E4F",  bg:"white",   sub:"and growing every month" },
-            { icon:<GlobeIco/>, n:160,   suffix:"+",    label:"Resources Listed",    color:"#264653",  bg:"white",   sub:"across 6 categories" },
+            { icon:<UsersIco/>, n:12000, suffix:"+",    label:"Residents Connected", color:"#1B6E4F",  bg:"white",   sub:"and growing every month" },
+            { icon:<GlobeIco/>, n:120,   suffix:"+",    label:"Resources Listed",    color:"#264653",  bg:"white",   sub:"across 6 categories" },
             { icon:<SunIco/>,   n:50,    suffix:"",     label:"Active Volunteers",   color:"#2a9d6e",  bg:"white",   sub:"donating their time" },
-            { icon:<HeartIco/>, n:4,     suffix:" yrs", label:"Years Serving",       color:"#0cc883",  bg:"#1B6E4F", sub:"Est. 2020" },
+            { icon:<HeartIco/>, n:4,     suffix:" yrs", label:"Years Serving",       color:"#0cc883",  bg:"#1B6E4F", sub:"Est. 2021" },
           ].map(({ icon, n, suffix, label, color, bg, sub }) => (
             <motion.div key={label} variants={fadeUp}
               whileHover={{ y:-6, boxShadow:"0 16px 40px rgba(27,110,79,0.18)" }}

@@ -410,6 +410,13 @@ export const ALL_POSTS = [
     photo: PHOTOS.food,
     resource:
       "Chester County Food Bank, Phoenixville Good Samaritan Services, West Chester Food Cupboard",
+    links: [
+      { "Chester County Food Bank": "https://chestercountyfoodbank.org/" },
+      {
+        "Phoenixville Good Samaritan Services": "https://goodsamservices.org/",
+      },
+      { "West Chester Food Cupboard": "https://westchesterfoodcupboard.org/" },
+    ],
     steps: [
       "Find your nearest food bank using Chester Bridge",
       "Check hours and walk-in vs. appointment policy",
@@ -475,9 +482,16 @@ export const ALL_POSTS = [
     date: "Mar 12, 2025",
     photo: PHOTOS.housing,
     resource: "Chester County Night Shelter, 211 PA, YWCA Chester County",
+    links: [
+      {
+        "211 PA": "https://www.pa211.org/",
+      },
+      { "YWCA Chester County": "https://www.ywca.org/" },
+    ],
+
     steps: [
       "Call 211 for immediate routing to an open shelter",
-      "Go to Chester County Night Shelter after 5pm (walk-in accepted)",
+      "Go to Chester County Night Shelters",
       "Bring ID if you have it — most shelters accept you without it",
       "Ask shelter staff about transitional housing options",
     ],
@@ -494,19 +508,6 @@ export const ALL_POSTS = [
       {
         type: "p",
         text: "If calling is hard, you can text your ZIP code to 898-211. You can also reach 211 from the 211 PA website, which has a chat option.",
-      },
-      { type: "h2", text: "Chester County Night Shelter" },
-      {
-        type: "p",
-        text: "The Chester County Night Shelter at 235 W Market Street in West Chester accepts walk-ins every evening starting at 5pm. It is a low-barrier shelter, which means they do not require sobriety, ID, or a referral to enter. They operate on a first-come basis, so arriving closer to 5pm gives you a better chance of getting a bed on a busy night.",
-      },
-      {
-        type: "p",
-        text: "The shelter provides a cot, a hot meal, and access to case managers who can help you start working on next steps the following morning. The phone number is (610) 696-6877.",
-      },
-      {
-        type: "tip",
-        text: "If you have pets: the Night Shelter does not accept animals. Contact 211 for pet-friendly shelter options or ask about emergency boarding assistance.",
       },
       { type: "h2", text: "YWCA Chester County — Domestic Violence Shelter" },
       {
@@ -541,6 +542,12 @@ export const ALL_POSTS = [
     photo: PHOTOS.health,
     resource:
       "Community Health Clinics of Chester County, Devereux Advanced Behavioral Health",
+    links: [
+      {
+        "Community Health Clinics of Chester County": "https://www.pa211.org/",
+      },
+      { "Devereux Advanced Behavioral Health": "https://www.ywca.org/" },
+    ],
     steps: [
       "Search Chester Bridge for 'health' and filter by 'free'",
       "Call ahead to confirm hours and if walk-ins are accepted",

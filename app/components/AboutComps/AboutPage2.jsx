@@ -261,7 +261,7 @@ export default function AboutPage() {
             className="flex-1 text-center lg:text-left"
           >
             <motion.div variants={fadeUp}>
-              <Tag light>Chester County, PA · Est. 2020</Tag>
+              <Tag light>Chester County, PA</Tag>
             </motion.div>
             <motion.div
               variants={fadeUp}
