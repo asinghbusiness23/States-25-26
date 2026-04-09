@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { Geist, Geist_Mono, Open_Sans, Poppins, Rubik } from "next/font/google";
 import "./globals.css";
 import { AuthContextProvider } from "./context/AuthContext";
