@@ -1232,13 +1232,15 @@ export default function BlogsPage() {
             >
               Browse Resources <ArrowIco />
             </Link>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 bg-white text-[#1B6E4F] font-bold px-7 py-4 rounded-xl text-sm border-2 border-white"
-            >
-              <PlusIco /> Submit a Resource
-            </motion.button>
+            <Link href="/resources#form">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-2 bg-white text-[#1B6E4F] font-bold px-7 py-4 rounded-xl text-sm border-2 border-white"
+              >
+                <PlusIco /> Submit a Resource
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </section>
