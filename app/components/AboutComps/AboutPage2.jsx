@@ -11,6 +11,7 @@ import { MdReport } from "react-icons/md";
 import { CgNotes } from "react-icons/cg";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { BiDonateHeart } from "react-icons/bi";
+
 // ── Variants ──────────────────────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -610,12 +611,14 @@ export default function AboutPage() {
                 <p className="text-gray-400 text-sm leading-relaxed flex-1">
                   {desc}
                 </p>
-                <motion.button
-                  whileHover={{ x: 3 }}
-                  className="flex items-center gap-1.5 text-xs font-bold text-[#1B6E4F] mt-auto"
-                >
-                  Try it <ArrowIco />
-                </motion.button>
+                <Link href="/resources">
+                  <motion.button
+                    whileHover={{ x: 3 }}
+                    className="flex items-center gap-1.5 text-xs font-bold text-[#1B6E4F] mt-auto"
+                  >
+                    Try it <ArrowIco />
+                  </motion.button>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -1065,7 +1068,7 @@ export default function AboutPage() {
           >
             {[
               {
-                emoji: <CgNotes></CgNotes>,
+                emoji: <CgNotes className="text-black"></CgNotes>,
                 title: "Submit a Resource",
                 desc: "Know an organization, program, or service we're missing? Add it in under 2 minutes.",
                 cta: "Submit Now",
@@ -1074,7 +1077,7 @@ export default function AboutPage() {
                 link: "submit",
               },
               {
-                emoji: <MdReport></MdReport>,
+                emoji: <MdReport className="text-black"></MdReport>,
                 title: "Report Incorrect Info",
                 desc: "Spot outdated hours, wrong phone numbers, or a closed program? Let us know and we'll fix it.",
                 cta: "Report an Issue",
@@ -1083,7 +1086,7 @@ export default function AboutPage() {
                 link: "report",
               },
               {
-                emoji: <MailIco></MailIco>,
+                emoji: <MailIco className="text-black"></MailIco>,
                 title: "General Contact",
                 desc: "Questions, feedback, partnership inquiries, or anything else — a real person will respond.",
                 cta: "Send a Message",
