@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 import { Geist, Geist_Mono, Open_Sans, Poppins, Rubik } from "next/font/google";
 import "./globals.css";
-import { AuthContextProvider } from "./context/AuthContext";
 import Providers from "./providers";
 
 const geistSans = Geist({
@@ -33,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <Providers></Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
