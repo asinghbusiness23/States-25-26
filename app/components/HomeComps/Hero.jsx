@@ -186,7 +186,7 @@ export default function Hero() {
             className="flex items-center gap-8 mt-12 pt-10 border-t border-[#d3efca]"
           >
             {[
-              { n: "150+", label: "Resources" },
+              { n: "120+", label: "Resources" },
               { n: "12K+", label: "Helped" },
               { n: "Free", label: "Always" },
             ].map(({ n, label }) => (
