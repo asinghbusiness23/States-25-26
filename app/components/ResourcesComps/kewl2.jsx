@@ -447,7 +447,7 @@ const ResourceCard = ({
           }
           className="flex-1 bg-[#d3efca] text-[#1B6E4F] text-xs font-bold py-2.5 rounded-xl text-center"
         >
-          💬 {!user ? "Log in to comment" : "Comment"}
+           {!user ? "Log in to comment" : "Comment"}
         </motion.button>
         {/* Favorite Button*/}
         {!user || profile?.role == "admin" ? (
@@ -679,7 +679,7 @@ export default function ResourcesPage() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-gradient-to-br from-[#1B6E4F] to-[#0cc883] text-white px-3 sm:px-6 py-2.5 rounded-xl font-bold text-sm shadow-md flex-shrink-0"
+              className="bg-linear-to-br from-[#1B6E4F] to-[#0cc883] text-white px-3 sm:px-6 py-2.5 rounded-xl font-bold max-[600px]:hidden text-sm shadow-md flex-shrink-0"
             >
               Search
             </motion.button>

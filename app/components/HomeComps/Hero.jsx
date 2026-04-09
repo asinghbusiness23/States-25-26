@@ -108,16 +108,6 @@ export default function Hero() {
           initial="hidden"
           animate="show"
         >
-          {/* Eyebrow */}
-          <motion.div
-            variants={fadeUp}
-            className="flex items-center gap-3 mb-6"
-          >
-            <div className="h-px w-10 bg-[#1B6E4F] opacity-40" />
-            <span className="text-[11px] font-black tracking-[0.18em] uppercase text-[#1B6E4F] opacity-70">
-              Chester County, PA
-            </span>
-          </motion.div>
 
           {/* Headline */}
           <motion.h1

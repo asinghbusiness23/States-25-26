@@ -84,7 +84,7 @@ const Footer = () => (
 
       {/* BOTTOM BAR */}
       <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-center sm:text-left">
-        <p>© 2025 Chester Bridge. All rights reserved.</p>
+        <p>© 2026 Chester Bridge. All rights reserved.</p>
 
         <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
           {["Privacy Policy", "Terms of Use", "Accessibility"].map((l) => (
