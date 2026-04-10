@@ -321,7 +321,7 @@ export default function Hero() {
                 Chester County
               </p>
               <p className="text-[10px] text-[#7aaa91] mt-0.5">
-                Est. 2020 · Free always
+                Est. 1682
               </p>
             </div>
           </motion.div>

@@ -624,7 +624,230 @@ export default function AboutPage() {
           </motion.div>
         </InView>
       </section>
+      <section className="px-4 sm:px-8 md:px-20 py-16 sm:py-24 bg-[#F1FAEE]">
+        <InView className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-start">
+            {/* Left: text content */}
+            <div>
+              <SectionHead
+                tag="Our Home"
+                title="340+ years of community in Chester County"
+                sub="Understanding where we come from helps explain why a resource like Chester Bridge matters today."
+              />
 
+              <motion.div
+                variants={stagger(0.09)}
+                className="mt-8 sm:mt-10 flex flex-col gap-4"
+              >
+                {[
+                  {
+                    year: "1682",
+                    title: "Founded by William Penn",
+                    desc: "Chester County was created by William Penn as one of Pennsylvania's three original counties, named after Cheshire, England. Penn's vision of religious tolerance drew English, Welsh, and Irish Quakers, followed by German, Swiss, and Scots-Irish settlers who farmed the county's fertile valleys.",
+                    color: "#1B6E4F",
+                    bg: "#d3efca",
+                  },
+                  {
+                    year: "1777",
+                    title: "The Battle of Brandywine",
+                    desc: "Chester County sat at the center of the Revolutionary War. The Battle of Brandywine was fought in the county's southeastern reaches, and Valley Forge (where Washington's Continental Army endured the brutal winter of 1777–78) lies on the county's northeastern border.",
+                    color: "#264653",
+                    bg: "#cfe8e1",
+                  },
+                  {
+                    year: "1790s",
+                    title: "Iron, Steel & Industry",
+                    desc: "The Phoenix Iron Company, founded in 1790 on French Creek, became one of the country's first major ironworks where it supplied the Union Army during the Civil War and later produced structural steel for the railroad boom. Coatesville's Lukens Steel, which was operated by Rebecca Lukens from 1825, grew into the top boilerplate producer in the nation.",
+                    color: "#2a9d6e",
+                    bg: "#b7e4c7",
+                  },
+                  {
+                    year: "Today",
+                    title: "A county of 500,000+ residents",
+                    desc: "Chester County is now one of the wealthiest counties in Pennsylvania, but wealth is not evenly distributed. Thousands of residents still face food insecurity, housing instability, and barriers to healthcare. Chester Bridge exists because community has always been the county's foundation.",
+                    color: "#0cc883",
+                    bg: "#d3efca",
+                  },
+                ].map(({ year, title, desc, color, bg }, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="flex gap-4 sm:gap-5 bg-white rounded-2xl px-4 sm:px-5 py-4 sm:py-5 border border-[#e8f5e1] shadow-sm"
+                  >
+                    {/* Year badge */}
+                    <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                      <div
+                        className="w-14 sm:w-16 h-8 rounded-lg flex items-center justify-center"
+                        style={{ background: bg }}
+                      >
+                        <span
+                          className="text-[11px] font-black tracking-widest"
+                          style={{ color }}
+                        >
+                          {year}
+                        </span>
+                      </div>
+                      {i < 3 && (
+                        <div
+                          className="w-px flex-1 min-h-[2rem]"
+                          style={{ background: bg }}
+                        />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-black text-[#264653] text-sm mb-1">
+                        {title}
+                      </p>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right: photo collage + stat cards */}
+            <motion.div
+              variants={slideR}
+              className="flex flex-col gap-4 sm:gap-5"
+            >
+              {/* Main photo */}
+              <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-[0_12px_40px_rgba(27,110,79,0.16)]">
+                <img
+                  src="https://media.istockphoto.com/id/91361382/photo/cloudy-fall-foliage-scenic.webp?a=1&b=1&s=612x612&w=0&k=20&c=MVa-hldu_3QIk8dZn8JQmsNJCYlPTGBjnPveGNJwHHI="
+                  alt="Chester County community"
+                  className="w-full h-52 sm:h-64 object-cover block"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1B6E4F]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2.5">
+                    <p className="text-[11px] font-black text-[#1B6E4F] tracking-wide">
+                      Chester County, Pennsylvania
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">
+                      Founded 1682 · One of PA's three original counties
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stat cards — 2×2 grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  {
+                    value: "1682",
+                    label: "Year founded",
+                    color: "#1B6E4F",
+                    bg: "#d3efca",
+                  },
+                  {
+                    value: "560K+",
+                    label: "County residents",
+                    color: "#264653",
+                    bg: "#cfe8e1",
+                  },
+                  {
+                    value: "73",
+                    label: "Municipalities",
+                    color: "#2a9d6e",
+                    bg: "#b7e4c7",
+                  },
+                  {
+                    value: "No. 1",
+                    label: "Safest PA county (2023)",
+                    color: "#0cc883",
+                    bg: "#d3efca",
+                  },
+                ].map(({ value, label, color, bg }, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="bg-white rounded-2xl p-4 border border-[#e8f5e1] shadow-sm text-center"
+                  >
+                    <p
+                      className="font-black text-xl sm:text-2xl"
+                      style={{ color }}
+                    >
+                      {value}
+                    </p>
+                    <p className="text-gray-400 text-xs mt-1 leading-snug">
+                      {label}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Quote card */}
+              <div className="bg-gradient-to-br from-[#1B6E4F] to-[#264653] rounded-2xl p-5 sm:p-6 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#0cc883]/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="text-[#0cc883]/50 mb-3">
+                  <QuoteIco size={28} />
+                </div>
+                <p className="text-white font-black text-base sm:text-lg leading-snug mb-3">
+                  "Pennsylvania's richest history is written in the towns and
+                  valleys of Chester County."
+                </p>
+                <p className="text-white/50 text-xs font-semibold">
+                  — Chester County Historical Society
+                </p>
+              </div>
+
+              {/* Notable landmarks */}
+              <div className="bg-white rounded-2xl border border-[#d3efca] p-4 sm:p-5 shadow-sm">
+                <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
+                  Notable Landmarks
+                </p>
+                <div className="flex flex-col gap-2">
+                  {[
+                    {
+                      name: "Valley Forge National Historical Park",
+                      desc: "Site of Washington's 1777–78 winter encampment",
+                    },
+                    {
+                      name: "Brandywine Battlefield",
+                      desc: "Site of the 1777 Revolutionary War battle",
+                    },
+                    {
+                      name: "Longwood Gardens",
+                      desc: "World-class horticultural display garden, Kennett Square",
+                    },
+                    {
+                      name: "West Chester Borough",
+                      desc: "County seat since 1788, National Register Historic District",
+                    },
+                  ].map(({ name, desc }, i) => (
+                    <div key={i} className="flex items-start gap-2.5 text-sm">
+                      <div className="w-4 h-4 rounded-full bg-[#d3efca] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg
+                          width="8"
+                          height="8"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#1B6E4F"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold text-[#264653] text-xs">
+                          {name}
+                        </p>
+                        <p className="text-gray-400 text-xs leading-snug">
+                          {desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </InView>
+      </section>
       {/* ══════════════════════════════════════════════════════════
           4. WHO IT'S FOR — audience cards + wide photo quote
       ══════════════════════════════════════════════════════════ */}
