@@ -1513,10 +1513,10 @@ export default function AboutPage() {
                     <p className="text-center text-xs text-gray-300">
                       Or email us directly at{" "}
                       <a
-                        href="mailto:hello@chesterbridge.org"
+                        href="mailto:chesterbridgetsa@gmail.com"
                         className="text-[#1B6E4F] font-semibold underline underline-offset-2"
                       >
-                        hello@chesterbridge.org
+                        chesterbridgetsa@gmail.com
                       </a>
                     </p>
                   </motion.form>
@@ -1567,7 +1567,7 @@ export default function AboutPage() {
               Ready to find help — or help someone else find it?
             </p>
             <p className="text-[#4a7c6a] text-sm mt-2">
-              Search 200+ resources across Chester County, right now.
+              Search 120+ resources across Chester County, right now.
             </p>
           </motion.div>
           <motion.div variants={slideR} className="flex gap-3 flex-shrink-0">

@@ -60,7 +60,7 @@ const Footer = () => (
           {
             heading: "Contact",
             links: [
-              { label: "hello@chesterbridge.org", href: "#" },
+              { label: "chesterbridgetsa@gmail.com", href: "mailto:hello@chesterbridgetsa@gmail.com" },
               { label: "(610) 555-0192", href: "#" },
               { label: "123 Bridge St, West Chester PA", href: "#" },
               { label: "Mon–Fri 9am–5pm", href: "#" },
