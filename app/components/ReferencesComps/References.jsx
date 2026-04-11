@@ -264,7 +264,7 @@ export default function ReferencesPage() {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-black text-white leading-tight">
-                References<span className="text-[#0cc883]">.</span>
+                References
               </h1>
               <p className="text-white/50 text-sm mt-0.5">
                 Credits, sources, and project documentation
@@ -336,9 +336,7 @@ export default function ReferencesPage() {
               <p className="text-white/70 text-xs leading-relaxed">
                 <span className="text-[#ec4899] font-bold">Attribution:</span>{" "}
                 Where required by license, attribution is provided in the image
-                alt text and/or captions within the application. All images were
-                selected to depict the communities and resources of Chester
-                County, PA.
+                alt text and/or captions within the application. 
               </p>
             </div>
           </Section>

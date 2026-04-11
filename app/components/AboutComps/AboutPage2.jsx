@@ -485,9 +485,9 @@ export default function AboutPage() {
                 </h3>
                 <div className="flex flex-col gap-3">
                   {[
-                    "Search by what you need — not by who provides it",
+                    "Search by what you need. Not by who provides it",
                     "Filter instantly by category, urgency, and location",
-                    "See everything on an interactive map",
+                    "Instant access to resource locations",
                     "No login. No fee. No friction.",
                   ].map((t, i) => (
                     <div key={i} className="flex items-start gap-3">
@@ -577,13 +577,13 @@ export default function AboutPage() {
               {
                 icon: <SearchIco />,
                 title: "Search Resources",
-                desc: "Type what you need — food, housing, mental health, jobs — and get results instantly from 200+ local organizations.",
+                desc: "Type what you need: food, housing, mental health, jobs, and get results instantly from 120+ local organizations.",
                 color: "#1B6E4F",
               },
               {
                 icon: <FilterIco />,
                 title: "Filter by Need",
-                desc: "Narrow by category, urgency level, and location. Find immediate help or plan ahead — whatever fits your situation.",
+                desc: "Narrow by category, urgency level, and location. Find immediate help or plan ahead. Whatever fits your situation.",
                 color: "#2a9d6e",
               },
               {

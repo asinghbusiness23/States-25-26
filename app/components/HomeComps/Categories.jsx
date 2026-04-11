@@ -389,7 +389,7 @@ const CATEGORIES = [
   {
     id: "housing",
     name: "Housing",
-    emoji: "🏠",
+    emoji: "",
     accent: "#3b82f6",
     accentLight: "#eff6ff",
     icon: <FaHome />,
@@ -409,7 +409,7 @@ const CATEGORIES = [
   {
     id: "health",
     name: "Health",
-    emoji: "🏥",
+    emoji: "",
     accent: "#ec4899",
     accentLight: "#fdf2f8",
     icon: <MdOutlineHealthAndSafety />,
@@ -429,7 +429,7 @@ const CATEGORIES = [
   {
     id: "education",
     name: "Education",
-    emoji: "📚",
+    emoji: "",
     accent: "#06b6d4",
     accentLight: "#ecfeff",
     icon: <RiGraduationCapLine />,
@@ -449,7 +449,7 @@ const CATEGORIES = [
   {
     id: "food",
     name: "Food",
-    emoji: "🍎",
+    emoji: "",
     accent: "#f59e0b",
     accentLight: "#fffbeb",
     icon: <CiForkAndKnife />,
@@ -469,7 +469,7 @@ const CATEGORIES = [
   {
     id: "jobs",
     name: "Jobs",
-    emoji: "💼",
+    emoji: "",
     accent: "#8b5cf6",
     accentLight: "#f5f3ff",
     icon: <FaBriefcase />,

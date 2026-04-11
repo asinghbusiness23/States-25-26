@@ -950,12 +950,35 @@ const FeaturedResources2 = () => {
           ))}
         </motion.div>
       </section>
-
       <AnimatePresence>
         {modalRes && (
           <DetailModal r={modalRes} onClose={() => setModalRes(null)} />
         )}
       </AnimatePresence>
+      <div
+        className="w-full overflow-hidden -mb-px"
+        style={{ background: "#F1FAEE" }}
+      >
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          className="w-full block"
+          style={{ height: "clamp(40px, 5vw, 80px)" }}
+        >
+          <path
+            d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 L1440,80 L0,80 Z"
+            fill="#d3efca"
+          />
+          <path
+            d="M0,48 C120,18 240,78 360,48 C480,18 600,78 720,48 C840,18 960,78 1080,48 C1200,18 1320,78 1440,48"
+            fill="none"
+            stroke="#d3efca"
+            strokeWidth="1.5"
+            opacity="0.6"
+          />
+        </svg>
+      </div>
     </>
   );
 };
