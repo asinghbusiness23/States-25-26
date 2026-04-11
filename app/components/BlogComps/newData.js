@@ -1,15 +1,19 @@
 const PHOTOS = {
-  food: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80&auto=format&fit=crop",
+  food: "https://images.unsplash.com/photo-1738618141234-1ee52c6475a7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   food2:
     "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80&auto=format&fit=crop",
   housing:
-    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1491357492920-d2979986a84e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvdXNpbmd8ZW58MHx8MHx8fDA%3D",
   housing2:
-    "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80&auto=format&fit=crop",
+    "https://plus.unsplash.com/premium_photo-1680185462024-449a2abaec28?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGhvdXNpbmd8ZW58MHx8MHx8fDA%3D",
+  housing3:
+    "https://images.unsplash.com/photo-1513880989635-6eb491ce7f5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2luZ3xlbnwwfHwwfHx8MA%3D%3D",
   health:
-    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1631507623095-c710d184498f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJlZSUyMGNsaW5pY3N8ZW58MHx8MHx8fDA%3D",
   health2:
     "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80&auto=format&fit=crop",
+  health3:
+    "https://images.unsplash.com/photo-1659353887730-51c3c6b64264?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jdG9ycyUyMG9mZmljfGVufDB8fDB8fHww",
   jobs: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&auto=format&fit=crop",
   education:
     "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80&auto=format&fit=crop",
@@ -626,7 +630,7 @@ export const ALL_POSTS = [
       "The waitlist is long and the process is confusing. Here's a clear explanation of how Section 8 works, how to apply, and how not to lose your spot.",
     readTime: 8,
     date: "Jan 22, 2026",
-    photo: PHOTOS.housing2,
+    photo: PHOTOS.housing3,
     resource: "Chester County Housing Authority",
     links: [
       {
@@ -678,7 +682,7 @@ export const ALL_POSTS = [
       "Most therapists have a waitlist. These Chester County options don't, or they're much shorter than what you'd find on your own.",
     readTime: 5,
     date: "Jan 15, 2026",
-    photo: PHOTOS.health2,
+    photo: PHOTOS.health3,
     resource:
       "Devereux Advanced Behavioral Health, PA Warmline, 988 Life Line, Community Volunteers in Medicine",
     links: [

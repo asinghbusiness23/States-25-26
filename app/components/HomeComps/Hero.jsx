@@ -56,13 +56,13 @@ const PHOTOS = [
     rotate: "-3deg",
   },
   {
-    src: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80",
+    src: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "Chester County community gathering",
-    label: "Community Events",
+    label: "Housing",
     rotate: "1.5deg",
   },
   {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
+    src: "https://plus.unsplash.com/premium_photo-1667762241847-37471e8c8bc0?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "People receiving health services",
     label: "Health & Support",
     rotate: "-1deg",
@@ -108,7 +108,6 @@ export default function Hero() {
           initial="hidden"
           animate="show"
         >
-
           {/* Headline */}
           <motion.h1
             variants={fadeUp}
@@ -320,9 +319,7 @@ export default function Hero() {
               <p className="font-black text-[#264653] text-xs leading-none">
                 Chester County
               </p>
-              <p className="text-[10px] text-[#7aaa91] mt-0.5">
-                Est. 1682
-              </p>
+              <p className="text-[10px] text-[#7aaa91] mt-0.5">Est. 1682</p>
             </div>
           </motion.div>
 

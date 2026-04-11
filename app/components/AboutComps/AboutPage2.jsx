@@ -175,9 +175,9 @@ const P = {
   volunteers:
     "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80",
   health:
-    "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
-  community:
-    "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80",
+    "https://plus.unsplash.com/premium_photo-1667762241847-37471e8c8bc0?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  housing:
+    "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   neighbors:
     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80",
   outreach:
@@ -192,6 +192,7 @@ const P = {
     "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80",
   team: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
 };
+
 
 export default function AboutPage() {
   const [formState, setFormState] = useState({
@@ -387,14 +388,14 @@ export default function AboutPage() {
             >
               <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_20px_56px_rgba(27,110,79,0.3)]">
                 <img
-                  src={P.community}
-                  alt="Community gathering"
+                  src={P.housing}
+                  alt="Hosuing"
                   className="w-full h-36 object-cover block"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1B6E4F]/30 to-transparent" />
                 <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1">
                   <span className="text-[10px] font-black text-[#1B6E4F]">
-                    Community Events
+                    Housing
                   </span>
                 </div>
               </div>

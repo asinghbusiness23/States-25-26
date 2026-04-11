@@ -1266,7 +1266,7 @@ import { FaLink, FaMapPin } from "react-icons/fa";
 import { PiLadderSimpleFill } from "react-icons/pi";
 
 const PHOTOS = {
-  food: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80&auto=format&fit=crop",
+  food: "https://images.unsplash.com/photo-1710093072228-8c3129f27357?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMGFjY2Vzc3xlbnwwfHwwfHx8MA%3D%3D",
   food2:
     "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80&auto=format&fit=crop",
   housing:
@@ -1283,11 +1283,11 @@ const PHOTOS = {
   emergency:
     "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=800&q=80&auto=format&fit=crop",
   community:
-    "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tbXVuaXR5fGVufDB8fDB8fHww",
   community2:
-    "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhlbHBpbmd8ZW58MHx8MHx8fDA%3D",
   volunteers:
-    "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80&auto=format&fit=crop",
+    "https://plus.unsplash.com/premium_photo-1681140560906-4610ee700d1b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dm9sdW50ZWVyc3xlbnwwfHwwfHx8MA%3D%3D",
   hero: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1600&q=80&auto=format&fit=crop",
   meal: "https://images.unsplash.com/photo-1536010305525-f7aa0834e2c7?w=800&q=80&auto=format&fit=crop",
   clinic:

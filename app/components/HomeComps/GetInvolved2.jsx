@@ -212,24 +212,7 @@ const GetInvolved2 = () => {
       </motion.div>
 
       {/* Bottom community photo strip */}
-      <motion.div variants={stagger(0.07)} initial="hidden" animate={inView?"show":"hidden"}
-        className="grid grid-cols-3 gap-4 mt-10">
-        {[
-          { src:"https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80", caption:"Spring Resource Fair" },
-          { src:"https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80",  caption:"Volunteer Workshop" },
-          { src:"https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",  caption:"Community Team" },
-        ].map(({ src, caption },i)=>(
-          <motion.div key={i} variants={fadeUp}
-            whileHover={{ y:-4, boxShadow:"0 14px 40px rgba(27,110,79,0.18)" }}
-            className="relative rounded-2xl overflow-hidden h-32 border-4 border-white shadow-sm group cursor-pointer">
-            <img src={src} alt={caption} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#264653]/70 to-transparent"/>
-            <div className="absolute bottom-3 left-3">
-              <p className="text-white font-black text-xs">{caption}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+     
     </section>
   );
 };
